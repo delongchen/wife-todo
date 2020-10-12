@@ -44,7 +44,7 @@ const d = [
   ]
 ]
 
-function TodoCell(info) {
+export function TodoCell(info) {
   const ch = info[1]
   if (Array.isArray(ch)) {
     this.title = info[0]
@@ -52,6 +52,4 @@ function TodoCell(info) {
   } else this.title = info
 }
 
-const DATA = new TodoCell(d)
-
-console.log(DATA)
+export const DATA = new TodoCell(d)
