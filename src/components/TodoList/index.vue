@@ -13,6 +13,13 @@ export default {
     return {
       DATA
     }
+  },
+  created() {
+    fetch('todos.json').then(value => {
+      value.text().then(json => {
+        console.log(json)
+      })
+    })
   }
 }
 </script>

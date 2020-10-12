@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>{{ info.title }}</p>
+    <p @click="killThis">{{ info.title }}</p>
     <ul v-if="info.children">
       <todo-cell
         v-for="(v, k) in info.children"
@@ -24,6 +24,13 @@ export default {
   data() {
     return {
 
+    }
+  },
+  methods: {
+    killThis(event) {
+      const target = event.target
+
+      target.style.textDecoration = 'line-through'
     }
   }
 }
