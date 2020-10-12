@@ -1,6 +1,8 @@
 <template>
   <div>
-    <p>{{ info.title }}</p>
+    <p @click="killSelf" :style="{
+      textDecoration: closed ? 'line-through' : 'none'
+    }">{{ info.title }}</p>
     <ul v-if="info.children">
       <todo-cell
         v-for="(v, k) in info.children"
@@ -23,6 +25,21 @@ export default {
   },
   data() {
     return {
+      count: 0,
+      closed: false
+    }
+  },
+  methods: {
+    killSelf() {
+      this.closed = !this.closed
+    }
+  },
+  created() {
+    const { children } = this.info
+    children && (this.count = children.length)
+  },
+  watch: {
+    count(val) {
 
     }
   }
