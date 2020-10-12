@@ -1,18 +1,10 @@
 <template>
-  <div>this is todos</div>
-  <div>{{ DATA }}</div>
+  <p>s</p>
 </template>
 
 <script>
-import { DATA } from "@/components/TodoList/data";
-
 export default {
-  name: "TodoList",
-  setup() {
-    return {
-      DATA
-    }
-  }
+  name: "TodoList"
 }
 </script>
 

@@ -1,6 +1,6 @@
-export const DATA = [
+const d = [
   'what is FE - wife', [
-    '编程基础', [
+    ['编程基础', [
       ['计算机基础', [
         ['计算机组成原理', [
           '冯诺依曼机构',
@@ -20,7 +20,7 @@ export const DATA = [
       ]],
       ['数据结构', []],
       ['算法', []]
-    ],
+    ]],
     ['语法和API', [
       ['业界标准', []],
       ['XML', []],
@@ -40,6 +40,18 @@ export const DATA = [
     ['前端框架', []],
     ['常用工具和插件', []],
     ['技术广度', []],
-    ['其他', []]
+    '其他'
   ]
 ]
+
+function TodoCell(info) {
+  const ch = info[1]
+  if (Array.isArray(ch)) {
+    this.title = info[0]
+    this.children = ch.map(i => new TodoCell(i))
+  } else this.title = info
+}
+
+const DATA = new TodoCell(d)
+
+console.log(DATA)
